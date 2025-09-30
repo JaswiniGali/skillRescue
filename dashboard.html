@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Skill Rescue</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h2>Skill Rescue</h2>
+        <button class="btn secondary" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="container dashboard">
+        <h3 id="welcome"></h3>
+
+        <!-- Dashboard Stats -->
+        <div class="stats-container" id="stats"></div>
+
+        <!-- Notifications -->
+        <div id="notifications" class="notifications"></div>
+
+        <!-- Filter mentors -->
+        <div class="filter-container">
+            <input type="text" id="skillFilter" placeholder="Search mentor by skill" oninput="filterMentors()">
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('mentors')">Mentors</button>
+            <button class="tab-btn" onclick="showTab('addSkill')">Add Skill</button>
+            <button class="tab-btn" onclick="showTab('sessions')">Sessions</button>
+        </div>
+
+        <!-- Mentors Tab -->
+        <div id="mentors" class="tab-content">
+            <div id="mentorList" class="cards-container"></div>
+        </div>
+
+        <!-- Add Skill Tab -->
+        <div id="addSkill" class="tab-content" style="display:none;">
+            <input type="text" id="skillName" placeholder="Enter skill">
+            <button class="btn primary" onclick="addSkill()">Add Skill</button>
+        </div>
+
+        <!-- Sessions Tab -->
+        <div id="sessions" class="tab-content" style="display:none;">
+            <h4>Book a Session</h4>
+            <select id="mentorSelect"></select>
+            <input type="date" id="sessionDate">
+            <button class="btn primary" onclick="bookSession()">Book Session</button>
+
+            <h4>Your Sessions</h4>
+            <div id="sessionList" class="cards-container"></div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
